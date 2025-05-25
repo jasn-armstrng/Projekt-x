@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
   "devDependencies": {
     "@js-draw/material-icons": "^1.30.0",
     "js-draw": "^1.30.0",
+    "sass-embedded": "^1.89.0",
     "vite": "^6.3.5"
   }
 }

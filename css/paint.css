@@ -4,4 +4,27 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+/* Then, in your CSS file (e.g., style.css): */
+.my-js-draw-editor {  /* Or .js-draw-editor-root, or your specific container's class */
+  width: 1024px;
+  height: 768px;
+  border: 1px solid #ccc; /* Optional: to see its boundaries */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1024px) {
+  .my-js-draw-editor {
+    width: 100%; /* Make it full width */
+    height: 600px; /* Adjust height as needed, or use aspect-ratio */
+  }
+}
+
+@media (max-width: 768px) {
+  .my-js-draw-editor {
+    height: 480px; /* Further adjust height for even smaller screens */
+  }
 }
