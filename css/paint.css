@@ -14,7 +14,7 @@ body {
     font-family: sans-serif; /* Basic font */
 }
 
-/* This is our new wrapper div, which will also have the .my-js-draw-editor class */
+/* This is our new wrapper div */
 #editor-wrapper {
     width: 85vw;    /* Default width relative to viewport width */
     height: 80vh;   /* Default height relative to viewport height */
@@ -94,3 +94,7 @@ body {
      border-radius: 0;
    }
 }
+
+/* .slider-container {
+  background-color: white;
+} */

@@ -1,4 +1,5 @@
-import Editor from 'js-draw';
+// The Editor
+import { Editor } from 'js-draw';
 import 'js-draw/styles';
 
 // Features of js-draw
@@ -19,14 +20,6 @@ import 'js-draw/styles';
 
 // Target the new wrapper div
 const containerElement = document.getElementById('editor-wrapper');
-
-// Add your custom class to the wrapper for styling via existing media queries if needed
-if (containerElement) {
-    containerElement.classList.add('my-js-draw-editor');
-} else {
-    console.error("Error: Could not find #editor-wrapper element.");
-    // Fallback or error handling if the wrapper isn't found
-}
 
 // Create an Editor with some custom settings
 // Ensure containerElement is valid before creating the editor
@@ -84,7 +77,6 @@ if (editor) {
         containerElement.innerHTML = '<p style="color: red; text-align: center;">Error initializing the editor.</p>';
     }
 }
-
 
 // Todo:
 // -----------------------------------------------------------------------------
