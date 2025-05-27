@@ -1,6 +1,6 @@
 // The Custom Pen
 import {
-	pathToRenderable, Path, Stroke, ComponentBuilderFactory, Point2, Vec2, Rect2, Color4, Viewport, StrokeDataPoint, RenderingStyle, PathCommandType, ComponentBuilder, AbstractRenderer
+	pathToRenderable, Path, Stroke, ComponentBuilderFactory, Point2, Rect2, Color4, Viewport, StrokeDataPoint, RenderingStyle, PathCommandType, ComponentBuilder, AbstractRenderer
 } from 'js-draw';
 
 ///
@@ -62,7 +62,6 @@ class WavyThicknessPenBuilder implements ComponentBuilder {
 			},
 		});
 	}
-
 
 	private roundPoint(point: Point2): Point2 {
 		return Viewport.roundPoint(point, this.sizeOfScreenPixelOnCanvas);
@@ -208,7 +207,6 @@ export const makeWavyThicknessPenBuilder: ComponentBuilderFactory =
 // The Editor
 import { Editor } from 'js-draw';
 import 'js-draw/styles';
-import { PenTool } from 'js-draw';
 
 // Target the new wrapper div
 const containerElement = document.getElementById('editor-wrapper');
@@ -220,7 +218,7 @@ const editor = containerElement ? new Editor(containerElement, {
 	maxZoom: 10,
 	pens: {
 		additionalPenTypes: [{
-			name: 'Wavy Thickness Pen', // Updated Pen Name
+			name: 'Wavy', // Updated Pen Name
 			id: 'wavy-thickness-pen',   // Updated Pen ID
 			factory: makeWavyThicknessPenBuilder, // Use the new builder factory
 			isShapeBuilder: false,
@@ -255,14 +253,11 @@ if (editor) {
         resizeObserver.observe(containerElement);
     }
 
-
-
 } else {
     if (containerElement) {
         containerElement.innerHTML = '<p style="color: red; text-align: center;">Error initializing the editor.</p>';
     }
 }
-
 
 // Todo:
 // -----------------------------------------------------------------------------
