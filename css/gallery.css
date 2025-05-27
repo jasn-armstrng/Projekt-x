@@ -1,7 +1,8 @@
 body {
     background-image: url(../assets/images/berenice-melis-cNKnDxNZ35I-unsplash.jpg);
-    background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-size: cover;
+    background-position: center bottom;
     background-color: black;
+    background-attachment: fixed;
 }

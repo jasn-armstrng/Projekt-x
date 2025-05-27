@@ -39,13 +39,20 @@ body {
     text-align: center; /* Center the main title */
 }
 
-.intro-message h2 {
+.intro-message h4 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 16px;
     color: #FF5F1F;
 }
 
 .intro-message p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: #F4E4CA;
+    margin-bottom: 1em; /* Add consistent spacing */
+}
+
+.intro-message li {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
     color: #F4E4CA;
@@ -61,12 +68,6 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: inherit; /* Inherit font size from parent p/li, not fixed 16px */
     color: #FF5F1F;
-}
-
-.intro-message strong:hover {
-    padding: 3px;
-    border: #FF5F1F;
-    border-style: ridge;
 }
 
 
@@ -100,12 +101,19 @@ body {
         font-size: 30px; /* Larger title on desktop */
     }
 
-    .intro-message h2 {
+    .intro-message h4 {
         font-size: 20px; /* Larger h2 */
     }
 
     .intro-message p {
         font-size: 18px; /* Larger text for readability on desktop */
+    }
+
+    .intro-message li {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+        color: #F4E4CA;
+        margin-bottom: 1em; /* Add consistent spacing */
     }
 
     .intro-message strong {
