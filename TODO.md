@@ -39,17 +39,20 @@ What are you waiting for?
     - [X] Database installation
     - [X] Gallery API design
     - [X] Gallery API (POST/GET) implementation
-    - [ ] Gallery styling
+    - [ ] Gallery page styling ============== May 29th
  - [X] Drawing page ========================= May 25th
-   - [ ] Drawing page save buttons styling == May 29th
+   - [X] Create "Upload image button" ======= May 28th
+   - [ ] Create "Download image button" ===== May 29th
+   - [ ] Style buttons ====================== May 29th
  - [X] Custom pen - Wavy/Calligraphic ======= May 26th
  - [X] Upload art to gallery ================ May 29th
-
- - [X] Save art to local drive ============== May 25th
- - [X] Routing ============================== May 29th
+ - [X] Backend Routing ====================== May 28th
+ - [ ] Frontend Routing ===================== May 29th
+ - [ ] Generate QR code for home page ======= May 29th
 
 **Testing**
  - [ ] User Acceptance Testing ============== May 30th
+   - [ ] Prepare presentation =============== May 30th
 
 **Optional features**
  - [ ] Upload art to socials ================ TBD
