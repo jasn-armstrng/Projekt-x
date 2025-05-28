@@ -1,3 +1,4 @@
+// server/server.js
 const express = require('express'); // A minimal and flexible Node.js web appliation framework that provides a robust set of features for web and mobile applications.
 const path = require('path'); // To work with directories and file paths on the machine
 const cors = require('cors'); // Provides a Connect/Express middleware that can be used to enable CORS (Cross-origin resource sharing) with various options
