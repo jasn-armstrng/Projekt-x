@@ -58,6 +58,20 @@ app.get('/admin', (req, res) => {
   res.status(401).send('Authentication required.');
 });
 
+// For admin to view staged images
+// This needs to be secured with the same auth check as the /admin route
+app.use('/data/staging', (req, res, next) => {
+    const auth = { login: 'admin', password: 'password' };
+    const b64auth = (req.headers.authorization || '').split(' ')[1] || '';
+    const [login, password] = Buffer.from(b64auth, 'base64').toString().split(':');
+
+    if (login && password && login === auth.login && password === auth.password) {
+        return express.static(path.join(__dirname, 'data', 'staging'))(req, res, next);
+    }
+    res.set('WWW-Authenticate', 'Basic realm="401"');
+    res.status(401).send('Authentication required.');
+});
+
 app.listen(PORT, () => {
   console.log(`Backend server running on http://localhost:${PORT}`);
 });

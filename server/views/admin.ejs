@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Image Moderation</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        .image-pending { border: 1px solid #ccc; margin-bottom: 20px; padding: 10px; }
+        .image-pending img { max-width: 300px; max-height: 300px; display: block; margin-bottom: 10px; }
+        .actions button { margin-right: 10px; padding: 8px 12px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Pending Images for Moderation</h1>
+    <% if (pendingImages && pendingImages.length > 0) { %>
+        <% pendingImages.forEach(image => { %>
+            <div class="image-pending" id="image-<%= image.id %>">
+                <p>ID: <%= image.id %></p>
+                <p>Filename: <%= image.filename %></p>
+                <object type="image/svg+xml" data="/data/staging/<%= image.staging_path.replace(/\\/g, '/') %>" width="200" height="200">
+                    Your browser does not support SVGs.
+                </object>
+                <div class="actions">
+                    <button onclick="moderateImage(<%= image.id %>, 'approve')">Approve</button>
+                    <button onclick="moderateImage(<%= image.id %>, 'reject')">Reject</button>
+                </div>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p>No images pending review.</p>
+    <% } %>
+
+    <script>
+        async function moderateImage(imageId, action) {
+            try {
+                const response = await fetch('/api/moderateImage', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Add Basic Auth header if re-authenticating per request
+                    },
+                    body: JSON.stringify({ imageId, action }),
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    alert(result.message);
+                    document.getElementById(`image-${imageId}`).remove(); // Remove from view
+                } else {
+                    alert(`Error: ${result.message}`);
+                }
+            } catch (error) {
+                alert('Network error during moderation.');
+            }
+        }
+    </script>
+</body>
+</html>
