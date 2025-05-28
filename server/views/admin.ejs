@@ -12,12 +12,13 @@
 </head>
 <body>
     <h1>Pending Images for Moderation</h1>
+    <p>ID: <%= pendingImages.length %></p>
     <% if (pendingImages && pendingImages.length > 0) { %>
         <% pendingImages.forEach(image => { %>
             <div class="image-pending" id="image-<%= image.id %>">
                 <p>ID: <%= image.id %></p>
                 <p>Filename: <%= image.filename %></p>
-                <object type="image/svg+xml" data="/data/staging/<%= image.staging_path.replace(/\\/g, '/') %>" width="200" height="200">
+                <object type="image/svg+xml" data="<%= image.staging_path.replace(/\\/g, '/') %>" width="200" height="200">
                     Your browser does not support SVGs.
                 </object>
                 <div class="actions">

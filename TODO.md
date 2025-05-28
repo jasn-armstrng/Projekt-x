@@ -34,21 +34,25 @@ What are you waiting for?
  - [X] Home/Intro page ====================== May 22nd
  - [X] About/Contact page =================== May 27th
  - [X] Terms and Conditions page ============ May 27th
- - [ ] Gallery page ========================= May 27th - 28th May
-    - [ ] Gallery architecture design
-    - [ ] Database installation
-    - [ ] Gallery API design
+ - [X] Gallery page ========================= May 27th - 28th May
+    - [X] Gallery architecture design
+    - [X] Database installation
+    - [X] Gallery API design
+    - [X] Gallery API (POST/GET) implementation
+    - [ ] Gallery styling
  - [X] Drawing page ========================= May 25th
+   - [ ] Drawing page save buttons styling == May 29th
  - [X] Custom pen - Wavy/Calligraphic ======= May 26th
- - [ ] Upload art to gallery ================ May 29th
- - [ ] Upload art to socials ================ May 29th
+ - [X] Upload art to gallery ================ May 29th
+
  - [X] Save art to local drive ============== May 25th
- - [ ] Routing ============================== May 29th
+ - [X] Routing ============================== May 29th
 
 **Testing**
  - [ ] User Acceptance Testing ============== May 30th
 
 **Optional features**
+ - [ ] Upload art to socials ================ TBD
  - [ ] Donate page ========================== TBD
 
 #### Gallery architecture design

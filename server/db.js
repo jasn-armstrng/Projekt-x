@@ -15,7 +15,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
       filename TEXT UNIQUE NOT NULL,
       staged_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       approved_at DATETIME NULL,
-      status TEXT DEFAULT 'pending' -- pending, approved, rejected
+      status TEXT DEFAULT 'pending', -- pending, approved, rejected
       staging_path TEXT,            -- e.g., data/staging/image.svg
       gallery_path TEXT NULL        -- e.g., /gallery_images/image.svg
     )`, (err) => {

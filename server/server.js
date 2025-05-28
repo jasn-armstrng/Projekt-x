@@ -36,26 +36,36 @@ app.set('view engine', 'ejs'); // Set EJS (Embedded JS) as the templating engine
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/admin', (req, res) => {
-  // Basic password protection (replace with stronger for production)
-  const auth = { login: 'admin', password: 'password' }; // Keep this out of client-side code. This is server-side so it's ok, but we can do better.
-
-  // This line handles HTTP Basic Authentication where the browser sends credentials in the header like "Basic YWRtaW46cGFzc3dvcmQ=". It splits on the space to get just the base64 part, with fallbacks to empty string if the header is missing or malformed.
+  const auth = { login: 'admin', password: 'password' };
   const b64auth = (req.headers.authorization || '').split(' ')[1] || ''; // Extract the base64-encoded credentials from the Authorization header (format: "Basic <base64string>")
   const [login, password] = Buffer.from(b64auth, 'base64').toString().split(':'); // Decode the base64 credentials and split on ':' to get username and password separately
 
   if (login && password && login === auth.login && password === auth.password) {
-    // Fetch pending images to pass to the admin template
-    const stmt = db.prepare("SELECT id, filename, staging_path FROM gallery_images WHERE status = 'pending' ORDER BY staged_at DESC");
-    const pendingImages = stmt.all();
-    return res.render('admin', { pendingImages });
-  }
+    const sqlQuery = "SELECT id, filename, staging_path FROM gallery_images WHERE status = 'pending' ORDER BY staged_at DESC";
 
-  // The following two lines tell the client (e.g., a web browser) that access to the requested resource is denied because authentication is needed, and it specifies that "Basic" authentication should be used for the designated "realm". Browsers will typically then show a pop-up dialog asking for a username and password.
-  // ...
-  // Sets the WWW-Authenticate header to indicate 'Basic' authentication is required for the "401" realm.
-  res.set('WWW-Authenticate', 'Basic realm="401"');
-  // Sends a 401 (Unauthorized) HTTP status code and the message 'Authentication required.' to the client.
-  res.status(401).send('Authentication required.');
+    // Use the callback version of .all for the 'sqlite3' package
+    db.all(sqlQuery, [], (err, pendingImages) => { // db.all or stmt.all with callback
+      if (err) {
+        console.error("Error fetching pending images:", err.message);
+        // It's good practice to also finalize the statement if you prepared it manually
+        // and then handle the error, perhaps by rendering an error page or sending a 500 status.
+        return res.status(500).send("Error retrieving data from database.");
+      }
+
+      console.log("Fetched pendingImages:", pendingImages); // This log should now accurately reflect what's sent to EJS
+
+      // Ensure pendingImages is actually an array, even if empty
+      // (db.all should return an array, or an error)
+      return res.render('admin', { pendingImages: pendingImages || [] });
+    });
+
+  } else {
+    // The following two lines tell the client (e.g., a web browser) that access to the requested resource is denied because authentication is needed, and it specifies that "Basic" authentication should be used for the designated "realm". Browsers will typically then show a pop-up dialog asking for a username and password.
+    // Sets the WWW-Authenticate header to indicate 'Basic' authentication is required for the "401" realm.
+    res.set('WWW-Authenticate', 'Basic realm="401"');
+    // Sends a 401 (Unauthorized) HTTP status code and the message 'Authentication required.' to the client.
+    res.status(401).send('Authentication required.');
+  }
 });
 
 // For admin to view staged images
