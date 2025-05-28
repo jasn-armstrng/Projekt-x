@@ -232,6 +232,7 @@ if (editor) {
     editor.dispatch(editor.setBackgroundStyle({ autoresize: true }), addToHistory);
 
     const toolbar = editor.addToolbar();
+
     toolbar.addSaveButton(() => {
 		const saveData = editor.toSVG().outerHTML;
 		const blob = new Blob([saveData], { type: 'image/svg+xml' });
@@ -245,6 +246,37 @@ if (editor) {
 		URL.revokeObjectURL(url);
 		console.log('SVG data prepared for download:', saveData);
     });
+
+	const saveToGalleryButton = document.getElementById('saveToGalleryButton');
+    if (saveToGalleryButton) {
+        saveToGalleryButton.addEventListener('click', async () => {
+            const svgData = editor.toSVG().outerHTML;
+            try {
+                const response = await fetch('http://localhost:3000/api/uploadImage', { // Use your backend URL/port
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ svgData: svgData }),
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    // Simple toast: alert(result.message);
+                    console.log('Success:', result.message);
+                    // Implement a nicer toast/notification here
+                    alert(`Success: ${result.message}. Submission ID: ${result.submissionId || 'N/A'}`);
+                } else {
+                    // Simple toast: alert(`Error: ${result.message}`);
+                    console.error('Error:', result.message);
+                    alert(`Error: ${result.message}`);
+                }
+            } catch (error) {
+                console.error('Network error:', error);
+                // Simple toast: alert('Network error. Please try again.');
+                alert('Network error. Please try again.');
+            }
+        });
+    }
 
     if (containerElement && typeof ResizeObserver !== 'undefined') {
         const resizeObserver = new ResizeObserver(() => {
