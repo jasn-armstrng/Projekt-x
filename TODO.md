@@ -3,13 +3,13 @@
 #### Introduction
 'Sup Sarajevo,
 
-No art school rules here, just raw expression. This is a **DIGITAL CANVAS** for you to hit the streets of Sarajevo like never before. Forget the hassle with the authorities and resident permission – **PAINT THE CITY WALLS AND FLOORS** from your screens, no cops, no cleanup crews, **NO DRAMA** .
+The city is now a **DIGITAL CANVAS**. No hassle with the authorities or resident permission, **PAINT THE CITY WALLS, FLOORS, TRAMS...** from your screens - no cops, no cleanup, **SOME RULES APPLY** so we have no drama.
 
-Your city breathes art - the walls, the streets, the food, the people - they all have a vibe that inspires, fuels, and colours life in Sarajevo. It's something **I** felt from day 1.
+Your city breathes art - the walls, the streets, the food, the people - they all have a vibe that inspires, fuels, and colours life in Sarajevo. It's something **I**'ve felt from day 1.
 
-For one week, leading up to the **SARAJEVO STREET ART FESTIVAL**, this platform is your playground. Paint, write, set your imagination free. Save your creations, share them with #sarajevostreetart, and add them to the public **GALLERY**. During the festival the gallery is going all across the city on **digital screens and billboards**. You'll light up all Sarajevo.
+For one week, leading up to the **SARAJEVO STREET ART FESTIVAL**, photograph and unleash your creativity here. Save your creations - share them with #sarajevostreetart, and add them to the public **GALLERY**. During festival week the gallery is going all across the city on **digital screens and billboards**, lighting up Sarajevo.
 
-This is my respect to this city, to all you who make it what it is. A stage for every voice to be heard on the digital walls of Sarajevo.
+This is my respect to this city, to all you who make it what it is - express yourself and leave no surface behind.
 
 What are you waiting for?
 
@@ -22,12 +22,12 @@ What are you waiting for?
 6. Donate to local art/culture initiative - *Optional*
 
 #### Pages
-1. Introduction
-2. Drawing page
-3. Gallery
-4. Terms and conditions
-5. About/Contact
-6. Donate
+1. Introduction/home: `/`
+2. Drawing page: `/paint.html`
+3. Gallery: `/gallery.html`
+4. Terms and conditions: `/terms.html`
+5. About/Contact: `/about.html`
+6. Donate - `TBD`
 
 #### TODO
 **Core feature implementations**
@@ -53,9 +53,29 @@ What are you waiting for?
 **Testing**
  - [ ] User Acceptance Testing ============== May 30th
    - [ ] Prepare presentation =============== May 30th
+   - [ ] Prepare testing feedback doc ======= May 30th
 
 **Optional features**
  - [ ] Upload art to socials ================ TBD
  - [ ] Donate page ========================== TBD
 
-#### Gallery architecture design
+**Backup**
+ - [ ] Upload project to github ============= May 29th
+
+**Documentation**
+ - [ ] Application architecture
+ - [ ] User story
+ - [ ] Roadmap to festival
+
+#### Application architecture
+
+
+#### User story
+
+
+#### Roadmap to festival
+
+
+#### Commands
+ - Start backend: `node server/server.js`
+ - Start frontend: `npm run dev:frontend -- --host`
