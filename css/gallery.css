@@ -4,5 +4,125 @@ body {
     background-size: cover;
     background-position: center bottom;
     background-color: black;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Ensures background image stays fixed */
+
+    /* Basic padding for mobile */
+    padding: 15px; /* Adjust padding for better mobile viewing */
+}
+
+.main {
+    width: 95%; /* Adjust for mobile, allowing more width */
+    margin: 20px auto; /* Center on mobile, add vertical margin */
+    padding: 20px;
+
+    background-color: rgb(0, 0, 0); /* Black background */
+    border-radius: 25px;
+
+    line-height: 1.5;
+    box-sizing: border-box; /* Include padding in the width/height */
+
+    /* Scrollbar hiding for Firefox */
+    scrollbar-width: none; /* Firefox */
+    /* Scrollbar hiding for Internet Explorer and Edge (legacy) */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Scrollbar hiding for WebKit browsers (Chrome, Safari, Edge Chromium, Opera) */
+.main::-webkit-scrollbar {
+    display: none; /* WebKit */
+}
+
+.main h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-align: center; /* Center the main title */
+}
+
+.intro-message h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 16px;
+    color: #FF5F1F;
+}
+
+.intro-message p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: #F4E4CA;
+    margin-bottom: 1em; /* Add consistent spacing */
+}
+
+.intro-message a {
+    text-decoration: none;
+    color: #3498db; /* Consistent link color */
+}
+
+.intro-message strong {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: inherit; /* Inherit font size from parent p/li, not fixed 16px */
+    color: #FF5F1F;
+}
+
+.intro-message strong:hover {
+    padding: 3px;
+    border: #FF5F1F;
+    border-style: ridge;
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    body {
+        padding: 0; /* Remove body padding on desktop to allow main to take full height */
+        /* Important: To prevent the body from scrolling, you might need to set its height to 100vh and overflow: hidden */
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .main {
+        width: 65%; /* Wider on tablets */
+        height: fit-content; /* Allow height to adjust to content up to max-height */
+        max-height: 90vh; /* Allow it to take max 90% of viewport height */
+        overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+
+        /* Center and fix the .main div */
+        position: fixed; /* Fixes it relative to the viewport */
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); /* Truly centers the div */
+        -webkit-transform: translate(-50%, -50%); /* For wider browser compatibility */
+
+        margin: 0; /* Remove auto margins when fixed */
+        background-color: rgb(0, 0, 0); /* Ensure background is solid black */
+    }
+
+    .main h1 {
+        font-size: 30px; /* Larger title on desktop */
+    }
+
+    .intro-message h2 {
+        font-size: 20px; /* Larger h2 */
+    }
+
+    .intro-message p {
+        font-size: 18px; /* Larger text for readability on desktop */
+    }
+
+    .intro-message strong {
+        font-size: inherit; /* Ensure strong text scales with parent */
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .main {
+        width: 55%; /* Even wider on larger desktops */
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .main {
+        width: 50%; /* Max width for very large screens */
+    }
 }

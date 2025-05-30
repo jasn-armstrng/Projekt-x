@@ -57,16 +57,20 @@ body {
     color: #3498db; /* Consistent link color */
 }
 
-.intro-message strong {
+.link {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: inherit; /* Inherit font size from parent p/li, not fixed 16px */
     color: #FF5F1F;
 }
 
-.intro-message strong:hover {
+.link:hover {
     padding: 3px;
     border: #FF5F1F;
     border-style: ridge;
+}
+
+.emphasis {
+    text-decoration: underline;
 }
 
 
@@ -108,7 +112,7 @@ body {
         font-size: 18px; /* Larger text for readability on desktop */
     }
 
-    .intro-message strong {
+    .link {
         font-size: inherit; /* Ensure strong text scales with parent */
     }
 }
@@ -123,6 +127,6 @@ body {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .main {
-        width: 50%; /* Max width for very large screens */
+        width: 55%; /* Max width for very large screens */
     }
 }
