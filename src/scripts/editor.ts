@@ -233,26 +233,43 @@ if (editor) {
 
     const toolbar = editor.addToolbar();
 
-    toolbar.addSaveButton(() => {
-		const saveData = editor.toSVG().outerHTML;
-		const blob = new Blob([saveData], { type: 'image/svg+xml' });
-		const url = URL.createObjectURL(blob);
-		const a = document.createElement('a');
-		a.href = url;
-		a.download = 'drawing.svg';
-		document.body.appendChild(a);
-		a.click();
-		document.body.removeChild(a);
-		URL.revokeObjectURL(url);
-		console.log('SVG data prepared for download:', saveData);
-    });
+    // toolbar.addSaveButton(() => {
+	// 	const saveData = editor.toSVG().outerHTML;
+	// 	const blob = new Blob([saveData], { type: 'image/svg+xml' });
+	// 	const url = URL.createObjectURL(blob);
+	// 	const a = document.createElement('a');
+	// 	a.href = url;
+	// 	a.download = 'drawing.svg';
+	// 	document.body.appendChild(a);
+	// 	a.click();
+	// 	document.body.removeChild(a);
+	// 	URL.revokeObjectURL(url);
+	// 	console.log('SVG data prepared for download:', saveData);
+    // });
+
+    const downloadArtworkButton = document.getElementById('downloadArtworkButton');
+    if (downloadArtworkButton) {
+        downloadArtworkButton.addEventListener('click', () => {
+            const saveData = editor.toSVG().outerHTML; //
+            const blob = new Blob([saveData], { type: 'image/svg+xml' }); //
+            const url = URL.createObjectURL(blob); //
+            const a = document.createElement('a'); //
+            a.href = url; //
+            a.download = 'drawing.svg'; //
+            document.body.appendChild(a); //
+            a.click(); //
+            document.body.removeChild(a); //
+            URL.revokeObjectURL(url); //
+            console.log('SVG data prepared for download:', saveData); //
+        });
+    }
 
 	const saveToGalleryButton = document.getElementById('saveToGalleryButton');
     if (saveToGalleryButton) {
         saveToGalleryButton.addEventListener('click', async () => {
             const svgData = editor.toSVG().outerHTML;
             try {
-                const response = await fetch('http://localhost:3000/api/uploadImage', { // Use your backend URL/port
+                const response = await fetch('http://10.101.0.126:3000/api/uploadImage', { // Use your backend URL/port
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
