@@ -9,7 +9,7 @@
     "build": "vite build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jason Armstrong/Jaseen",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {

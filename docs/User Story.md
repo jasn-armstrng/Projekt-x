@@ -1,4 +1,3 @@
-
 ## User Story Document: Projekt-X
 
 **1. Introduction**

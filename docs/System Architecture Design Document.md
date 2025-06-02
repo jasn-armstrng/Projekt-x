@@ -2,7 +2,7 @@
 
 **1. Introduction and Overview**
 
-Projekt-X is a digital platform designed to celebrate Sarajevo's artistic soul, enabling users to create and share digital street art. It serves as a digital canvas for one week leading up to the Sarajevo Street Art Festival, with the intention of showcasing user-generated art on digital screens and billboards across the city. The project, initiated by Jaseen, aims to provide a stage for every voice to be heard and to illuminate Sarajevo with digital art. Key functionalities include a drawing interface, image uploading to a moderated public gallery, and an administrative backend for content moderation.
+Projekt-X is a digital platform designed to celebrate Sarajevo's artistic soul, enabling users to create and share digital street art. It serves as a digital canvas for one week leading up to the Sarajevo Street Art Festival, with the intention of showcasing user-generated art on digital screens and billboards across the city. The project, initiated by Jason Armstrong/Jaseen, aims to provide a stage for every voice to be heard and to illuminate Sarajevo with digital art. Key functionalities include a drawing interface, image uploading to a moderated public gallery, and an administrative backend for content moderation.
 
 **2. Architectural Style**
 
