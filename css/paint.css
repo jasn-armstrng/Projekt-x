@@ -99,9 +99,7 @@ body {
     margin-bottom: 0;   /* No margin for the last button in the stack */
 }
 
-
 /* --- Media Queries --- */
-
 @media (max-width: 1024px) {
   #editor-wrapper {
     width: 90vw;

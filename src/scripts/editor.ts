@@ -1,6 +1,6 @@
 // The Custom Pen
 import {
-	pathToRenderable, Path, Stroke, ComponentBuilderFactory, Point2, Rect2, Color4, Viewport, StrokeDataPoint, RenderingStyle, PathCommandType, ComponentBuilder, AbstractRenderer
+	pathToRenderable, Path, Stroke, ComponentBuilderFactory, Point2, Rect2, Color4, Viewport, StrokeDataPoint, RenderingStyle, PathCommandType, ComponentBuilder, AbstractRenderer, IconProvider, makeDropdownToolbar
 } from 'js-draw';
 
 ///
@@ -203,6 +203,18 @@ export const makeWavyThicknessPenBuilder: ComponentBuilderFactory =
 		return builder;
     };
 
+class CustomIconProvider extends IconProvider {
+    // Use '☺' instead of the default dropdown symbol.
+    public override makeDropdownIcon() {
+        const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        icon.innerHTML = `
+            <text x='5' y='55' style='fill: var(--icon-color); font-size: 16pt;'>☺</text>
+        `;
+        icon.setAttribute('viewBox', '0 0 100 100');
+        return icon;
+    }
+}
+
 
 // The Editor
 import { Editor } from 'js-draw';
@@ -210,6 +222,7 @@ import 'js-draw/styles';
 
 // Target the new wrapper div
 const containerElement = document.getElementById('editor-wrapper');
+const icons = new CustomIconProvider();
 
 // Create an Editor with some custom settings
 const editor = containerElement ? new Editor(containerElement, {
@@ -224,6 +237,7 @@ const editor = containerElement ? new Editor(containerElement, {
 			isShapeBuilder: false,
 		}],
 	},
+	iconProvider: icons,
 }) : null;
 
 if (editor) {
@@ -231,7 +245,9 @@ if (editor) {
     editor.dispatch(editor.image.setAutoresizeEnabled(true), addToHistory);
     editor.dispatch(editor.setBackgroundStyle({ autoresize: true }), addToHistory);
 
-    const toolbar = editor.addToolbar();
+	makeDropdownToolbar(editor).addDefaults();
+
+    // const toolbar = editor.addToolbar();
 
     // toolbar.addSaveButton(() => {
 	// 	const saveData = editor.toSVG().outerHTML;
@@ -301,7 +317,6 @@ if (editor) {
         });
         resizeObserver.observe(containerElement);
     }
-
 } else {
     if (containerElement) {
         containerElement.innerHTML = '<p style="color: red; text-align: center;">Error initializing the editor.</p>';
