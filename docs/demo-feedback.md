@@ -12,4 +12,7 @@
 6. When image is approved, give user a link to image that can be shared on social media.
 
 #### Action items
- - [ ] ...
+ - [ ] Open the upload background dialog when user goes to paint page.
+ - [ ] Bring "Pen" into focus after after background image is uploaded.
+ - [ ] Make the canvas resizing tip more obvious.
+ - [ ] Create option to pick from a gallery of preset backgrounds.
