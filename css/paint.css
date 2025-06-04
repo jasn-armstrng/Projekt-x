@@ -16,7 +16,7 @@ body {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
 }
 
 #canvas-and-controls-wrapper {
@@ -99,7 +99,14 @@ body {
     margin-bottom: 0;   /* No margin for the last button in the stack */
 }
 
+.toolbar-dropdown-toolbar, .toolbar-dropdown-toolbar .toolbar-dropdown {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: small;
+}
+
+
 /* --- Media Queries --- */
+
 @media (max-width: 1024px) {
   #editor-wrapper {
     width: 90vw;

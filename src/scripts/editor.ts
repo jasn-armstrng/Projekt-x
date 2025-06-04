@@ -208,7 +208,7 @@ class CustomIconProvider extends IconProvider {
     public override makeDropdownIcon() {
         const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         icon.innerHTML = `
-            <text x='5' y='55' style='fill: var(--icon-color); font-size: 16pt;'>☺</text>
+            <text x='5' y='55' style='fill: var(--icon-color);'>☺</text>
         `;
         icon.setAttribute('viewBox', '0 0 100 100');
         return icon;
