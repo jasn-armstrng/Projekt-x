@@ -60,9 +60,11 @@ What are you waiting for?
    - [X] Prepare testing feedback doc ======= May 30th
 
 **Action items from feedback**
- - [ ] Open the upload background dialog when user goes to paint page. =============== June 4th
- - [ ] Bring "Pen" into focus after after background image is uploaded. ============== June 4th
- - [ ] Make the canvas resizing tip more obvious. ==================================== June 4th
+ - [ ] Design a Tutorial overlay to:
+    - [ ] Emphasise uploading an image to the drawing canvas
+    - [ ] Show that the canvas can be resized
+    - [ ] Give brief description of the tools in toolbar
+    - [ ] Emphasise user exploration of the drawing tools
  - [ ] Create option to pick from a gallery of preset backgrounds. =================== June 5th
 
 **Backup**
@@ -148,3 +150,11 @@ graph TD
 #### Commands
  - Start backend: `node server/server.js`
  - Start frontend: `npm run dev:frontend -- --host`
+
+
+
+ Design a Tutorial overlay to:
+  - Emphasise uploading an image to the drawing canvas
+  - Show that the canvas can be resized
+  - Give brief description of the tools in toolbar
+  - Emphasise user exploration of the drawing tools

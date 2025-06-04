@@ -7,13 +7,87 @@
     <title>Paint - Projekt-X</title>
 </head>
 <body>
+
+    <div id="tutorial-overlay">
+        <div id="tutorial-content">
+            <h2>Your Digital Canvas!</h2>
+            <p>Let's get you started with a few tips:</p>
+
+            <div class="tutorial-step">
+                <h3>1. Upload Your Image 🖼️</h3>
+                <p>See the <strong class="highlight-tool">"Image"</strong> button in the toolbar above? Click it to upload your surface to paint!</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>2. Resize Your Canvas ↔️↕️</h3>
+                <p>The drawing area (the dark box where you'll paint) can be resized. Simply click and drag its bottom-right corner to adjust it to your preferred dimensions.</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>3. Explore the Toolbar ✏️</h3>
+                <p>The toolbar at the top has everything you need:</p>
+                <ul>
+                    <li><strong> - Pen 1/2/3:</strong> Different pens for painting.</li>
+                    <li><strong> - Eraser:</strong> To undo any mistakes.</li>
+                    <li><strong> - Select:</strong> To select and move parts of your work.</li>
+                    <li><strong> - Text:</strong> To add text overlays.</li>
+                    <li><strong> - Pan:</strong> To move around your canvas.</li>
+                    <li><strong> - Image:</strong> Upload your image (as mentioned above!).</li>
+                    <li><strong> - Undo/Redo:</strong> Step backward or forward in your actions.</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>4. Unleash Your Creativity! ✨</h3>
+                <p>Click around, try out all the tools, don't be afraid to experiment!</p>
+                <p>Save your art to the gallery and download/share #sarajevostreetart.</p>
+            </div>
+
+            <button id="close-tutorial-button">Go do your thing!</button>
+        </div>
+    </div>
     <div id="canvas-and-controls-wrapper">
         <div id="editor-wrapper"></div>
 
         <div class="action-buttons-container">
             <button id="saveToGalleryButton">Save to Gallery</button>
-            <button id="downloadArtworkButton">Download Artwork</button> </div>
+            <button id="downloadArtworkButton">Download</button>
+        </div>
     </div>
     <script type="module" src="src/scripts/editor.ts"></script>
+    <script>
+        // Basic JS to close the tutorial - you'll likely integrate this better in your editor.ts
+        const tutorialOverlay = document.getElementById('tutorial-overlay');
+        const closeTutorialButton = document.getElementById('close-tutorial-button');
+
+        if (tutorialOverlay && closeTutorialButton) {
+            // To show it by default. You can add logic to show it only once using localStorage.
+            // tutorialOverlay.style.display = 'flex';
+
+            closeTutorialButton.addEventListener('click', () => {
+                tutorialOverlay.style.display = 'none';
+            });
+
+            // Optional: Prevent interaction with background when overlay is visible
+            // This is more robustly handled by the overlay's z-index and background,
+            // but if you need to ensure no clicks go through:
+            /*
+            tutorialOverlay.addEventListener('click', (e) => {
+                if (e.target === tutorialOverlay) { // if click is on the backdrop itself
+                    // Optionally close or do nothing
+                }
+            });
+            */
+        }
+
+        // Example of how you might only show the tutorial once
+        // if (!localStorage.getItem('tutorialShown')) {
+        //     tutorialOverlay.style.display = 'flex';
+        //     localStorage.setItem('tutorialShown', 'true');
+        // } else {
+        //     tutorialOverlay.style.display = 'none';
+        // }
+
+    </script>
 </body>
 </html>

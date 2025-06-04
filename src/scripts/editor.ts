@@ -317,6 +317,7 @@ if (editor) {
         });
         resizeObserver.observe(containerElement);
     }
+
 } else {
     if (containerElement) {
         containerElement.innerHTML = '<p style="color: red; text-align: center;">Error initializing the editor.</p>';

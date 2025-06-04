@@ -40,9 +40,10 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    resize: both; /* Allows manual resize */
     padding: 10px;
     box-sizing: border-box;
+
+    resize: both; /* Allows manual resize */
 }
 
 #editor-wrapper > .imageEditorContainer {
@@ -104,6 +105,9 @@ body {
   font-size: small;
 }
 
+#editor-wrapper > div > div.toolbar-root.toolbar-element.toolbar-dropdown-toolbar > div.toolbar-toolContainer.toolbar-toolButtonContainer.toolbar-internalWidgetId--document-properties-widget.dropdownShowable {
+  display: none;
+}
 
 /* --- Media Queries --- */
 
@@ -172,4 +176,168 @@ body {
     min-width: unset; /* Unset min-width if using percentage based width */
     /* margin-bottom is inherited */
   }
+}
+
+/* paint.css additions */
+
+/* --- Tutorial Overlay Styles --- */
+#tutorial-overlay {
+    position: fixed; /* Sit on top of everything */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(244, 228, 202, 0.45); /* Dark semi-transparent background */
+    z-index: 10000; /* Ensure it's above all other content */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Styles for the content box within the overlay */
+#tutorial-content {
+    background-color: black; /* Similar to editor background for theme consistency */
+    color: #F4E4CA; /* Cream text, similar to your button text color */
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    max-width: 700px; /* Max width of the tutorial box */
+    max-height: 90vh; /* Max height to prevent overflow on small screens */
+    overflow-y: auto; /* Allow scrolling if content is too long */
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Match p font from terms.css */
+}
+
+#tutorial-content h2 {
+    color: #FF5F1F; /* Orange accent */
+    text-align: center;
+    margin-top: 0;
+    font-size: 28px;
+}
+
+#tutorial-content h3 {
+    color: #FF5F1F; /* Orange accent */
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    border-bottom: 1px solid #4a4a4a;
+    padding-bottom: 5px;
+}
+
+#tutorial-content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+#tutorial-content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#tutorial-content li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+#tutorial-content li::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+#tutorial-content .highlight-tool {
+    color: #FFD700; /* Gold for emphasis */
+    font-weight: bold;
+}
+
+.tutorial-step {
+    margin-bottom: 20px;
+    position: relative; /* For arrow positioning */
+}
+
+
+/* Position arrow for Image tool hint.
+   NOTE: This is a rough guide. The toolbar's exact position might vary.
+   You might need JavaScript to precisely position this arrow relative to the actual "Image" button,
+   or adjust these values. For now, it points generally towards the top toolbar area.
+*/
+.tutorial-arrow-image {
+    top: 45px; /* Adjust as needed */
+    left: 100px; /* Adjust to point near where "Image" button is visually */
+    transform: rotate(45deg); /* Pointing downwards towards the toolbar */
+}
+
+
+#close-tutorial-button {
+    display: block;
+    background-color: #FF5F1F; /* Orange accent from terms.css */
+    color: black; /* Cream text from terms.css */
+    border: 1px solid #F4E4CA;
+    padding: 12px 25px;
+    margin: 30px auto 0;
+    border-radius: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Match p font from terms.css */
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#close-tutorial-button:hover {
+    background-color: #e0531a; /* Slightly darker orange for hover */
+}
+
+#close-tutorial-button:active {
+    transform: translateY(1px); /* Slight press effect */
+}
+
+/* Media query for smaller screens to adjust tutorial padding/font size */
+@media (max-width: 768px) {
+    #tutorial-content {
+        padding: 20px;
+        max-width: 90vw;
+    }
+    #tutorial-content h2 {
+        font-size: 24px;
+    }
+    #tutorial-content h3 {
+        font-size: 18px;
+    }
+    #tutorial-content p {
+        font-size: 15px;
+    }
+    .tutorial-arrow-image {
+        /* Adjust arrow position for smaller screens if necessary */
+        left: 80px;
+    }
+    #close-tutorial-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #tutorial-content {
+        padding: 15px;
+    }
+     #tutorial-content h2 {
+        font-size: 20px;
+    }
+    #tutorial-content h3 {
+        font-size: 16px;
+    }
+    #tutorial-content p {
+        font-size: 14px;
+    }
+    .tutorial-arrow-image {
+        /* Hide or adjust arrow if it becomes too cluttered */
+        display: none; /* Example: hide on very small screens */
+    }
 }
