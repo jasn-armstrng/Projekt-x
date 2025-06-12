@@ -1,5 +1,5 @@
 // server/db.js
-const sqlite3 = require('sqlite3').verbose(); // Imports the 'sqlite3' module and enables verbose mode for more detailed stack traces in case of errors.
+const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
 const dbPath = path.join(__dirname, 'data', 'gallery.db');
